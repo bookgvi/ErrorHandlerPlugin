@@ -11,10 +11,8 @@
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.bookgvi.errorhandlerplugin.services.IdeErrorHandler"
+        <listener class="com.github.bookgvi.errorhandlerplugin.listeners.ApplicationActivationListener"
                   topic="com.intellij.ide.AppLifecycleListener"/>
 
-        <listener class="com.github.bookgvi.errorhandlerplugin.listeners.MyApplicationActivationListener"
-                  topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
 </idea-plugin>

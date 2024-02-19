@@ -9,11 +9,16 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.ui.Messages
 import com.jetbrains.rd.util.getThrowableText
 
-class IdeErrorHandler : AppLifecycleListener {
+open class IdeErrorHandler private constructor() : IHandler {
+
+    companion object {
+        fun getInstance() : IdeErrorHandler = IdeErrorHandler()
+    }
 
     private val ERROR_TITLE : String = ErrorHandlerBundle.message("error.handler.window.title.text")
-    override fun appFrameCreated(commandLineArgs: MutableList<String>) {
-        super.appFrameCreated(commandLineArgs)
+
+    override fun proceed() {
+
         MessagePool.getInstance().addListener(
                 object : MessagePoolListener {
                     override fun newEntryAdded() {
